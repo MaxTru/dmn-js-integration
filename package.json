@@ -1,0 +1,27 @@
+{
+  "name": "dmn-js-integration",
+  "version": "0.0.1",
+  "description": "integration and stress tests for dmn-js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxTru/dmn-js-integration.git"
+  },
+  "keywords": [
+    "dmn",
+    "dmn-js",
+    "integration test",
+    "stress test",
+    "test"
+  ],
+  "author": {
+    "name": "MaxTru",
+    "url": "https://github.com/MaxTru"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MaxTru/dmn-js-integration/issues"
+  }
+}
