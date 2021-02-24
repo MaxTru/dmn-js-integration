@@ -4,7 +4,8 @@
   "description": "integration and stress tests for dmn-js",
   "scripts": {
     "test": "karma start",
-    "dev": "npm run test -- --no-single-run --auto-watch"
+    "dev": "npm run test -- --no-single-run --auto-watch",
+    "all": "npm run test"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "url": "https://github.com/MaxTru/dmn-js-integration/issues"
   },
   "devDependencies": {
+    "chai": "^4.3.0",
     "dmn-js": "^10.1.0",
     "karma": "^6.1.1",
     "karma-chrome-launcher": "^3.1.0",
@@ -35,6 +37,7 @@
     "mocha": "^8.3.0",
     "puppeteer": "^7.1.0",
     "raw-loader": "^4.0.2",
+    "sinon": "^9.2.4",
     "sinon-chai": "^3.5.0",
     "webpack": "^5.24.1"
   }
