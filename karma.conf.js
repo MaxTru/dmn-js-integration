@@ -11,7 +11,8 @@ module.exports = function(config) {
 
     frameworks: [
       'mocha',
-      'sinon-chai'
+      'sinon-chai',
+      'webpack'
     ],
 
     files: [ 'test/spec/*.js' ],
