@@ -26,12 +26,20 @@ module.exports = function(config) {
       'test/spec/*.js': ['webpack']
     },
 
+    client: {
+      mocha: {
+        timeout : 10000
+      }
+    },
+
+    reportSlowerThan: 0.00001,
+
     webpack: {
       "mode": "development",
       module: {
         rules: [
           {
-            test: /\.css|\.dmn$/i,
+            test: /\.css|\.dmn$/,
             use: 'raw-loader'
           },
         ],
