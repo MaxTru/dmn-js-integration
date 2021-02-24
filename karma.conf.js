@@ -35,6 +35,8 @@ module.exports = function(config) {
 
     reportSlowerThan: 0.00001,
 
+    browserDisconnectTimeout: 10000,
+
     webpack: {
       'mode': 'development',
       module: {
