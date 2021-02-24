@@ -53,9 +53,9 @@ describe('Stress test', function() {
   });
 
 
-  describe('Open DRD view', function() {
+  describe('open DRD view', function() {
 
-    it('Should show 1 table with 10.000 cells', function(done) {
+    it('should show 1 table with 10.000 cells', function(done) {
       const diagram = require('../resources/1Table1000Rows10Cols.dmn');
 
       modeler.importXML(diagram, { open: false }, function(err) {
@@ -75,7 +75,7 @@ describe('Stress test', function() {
     });
 
 
-    it('Should show 3 tables with 10.000 cells', function(done) {
+    it('should show 3 tables with 10.000 cells', function(done) {
       const diagram = require('../resources/3Tables1000Rows10Cols.dmn');
 
       modeler.importXML(diagram, { open: false }, function(err) {
@@ -95,7 +95,7 @@ describe('Stress test', function() {
     });
 
 
-    it('Should show 1 table with 30.000 cells', function(done) {
+    it('should show 1 table with 30.000 cells', function(done) {
       const diagram = require('../resources/1Table3000Rows10Cols.dmn');
 
       modeler.importXML(diagram, { open: false }, function(err) {
@@ -117,9 +117,9 @@ describe('Stress test', function() {
   });
 
 
-  describe('Open Decision table view', function() {
+  describe('open Decision table view', function() {
 
-    it('Should show 10.000 cells in drd with 10.000 cells', function(done) {
+    it('should show 10.000 cells in drd with 10.000 cells', function(done) {
       const diagram = require('../resources/1Table1000Rows10Cols.dmn');
 
       modeler.importXML(diagram, { open: false }, function(err) {
@@ -139,7 +139,7 @@ describe('Stress test', function() {
     });
 
 
-    it('Should show 10.000 cells in drd with 30.000 cells', function(done) {
+    it('should show 10.000 cells in drd with 30.000 cells', function(done) {
       const diagram = require('../resources/3Tables1000Rows10Cols.dmn');
 
       modeler.importXML(diagram, { open: false }, function(err) {
@@ -159,7 +159,7 @@ describe('Stress test', function() {
     });
 
 
-    it('Should show 30.000 cells in drd with 30.000 cells', function(done) {
+    it('should show 30.000 cells in drd with 30.000 cells', function(done) {
       const diagram = require('../resources/1Table3000Rows10Cols.dmn');
 
       modeler.importXML(diagram, { open: false }, function(err) {
@@ -181,11 +181,11 @@ describe('Stress test', function() {
   });
 
 
-  describe('Interact with decision table', function() {
+  describe('interact with decision table', function() {
 
     describe('10.000 cells', function() {
 
-      it('Should interact', function(done) {
+      it('should interact', function(done) {
 
         const diagram = require('../resources/1Table1000Rows10Cols.dmn');
 
@@ -218,7 +218,7 @@ describe('Stress test', function() {
 
     describe('30.000 cells', function() {
 
-      it('Should interact', function(done) {
+      it('should interact', function(done) {
 
         const diagram = require('../resources/1Table3000Rows10Cols.dmn');
 
