@@ -1,9 +1,17 @@
 import Modeler from 'dmn-js/lib/Modeler';
 
+import { query } from 'min-dom';
+
 insertCSS('dmn-js-drd.css', require('dmn-js-drd/assets/css/dmn-js-drd.css'));
+
+insertCSS('dmn-js-shared.css', require('dmn-js-shared/assets/css/dmn-js-shared.css'));
 
 insertCSS('dmn-js-decision-table.css',
   require('dmn-js-decision-table/assets/css/dmn-js-decision-table.css')
+);
+
+insertCSS('dmn-js-decision-table-controls.css',
+  require('dmn-js-decision-table/assets/css/dmn-js-decision-table-controls.css')
 );
 
 insertCSS('diagram-js.css', require('diagram-js/assets/diagram-js.css'));
@@ -12,7 +20,7 @@ insertCSS('dmn-js-testing.css',
   '.test-container { height: 500px; }'
 );
 
-describe('Large Tables', function() {
+describe('Stress test', function() {
 
   let container;
   let modeler;
@@ -45,7 +53,7 @@ describe('Large Tables', function() {
   });
 
 
-  describe('DRD view', function() {
+  describe('Open DRD view', function() {
 
     it('Should show 1 table with 10.000 cells', function(done) {
       const diagram = require('../resources/1Table1000Rows10Cols.dmn');
@@ -60,8 +68,6 @@ describe('Large Tables', function() {
         const decisionView = views.filter(v => v.type === 'drd')[0];
 
         modeler.open(decisionView, done);
-
-        expect(true).to.be.true;
 
         done();
       });
@@ -83,8 +89,6 @@ describe('Large Tables', function() {
 
         modeler.open(decisionView, done);
 
-        expect(true).to.be.true;
-
         done();
       });
 
@@ -105,8 +109,6 @@ describe('Large Tables', function() {
 
         modeler.open(decisionView, done);
 
-        expect(true).to.be.true;
-
         done();
       });
 
@@ -115,7 +117,7 @@ describe('Large Tables', function() {
   });
 
 
-  describe('Decision table view', function() {
+  describe('Open Decision table view', function() {
 
     it('Should show 10.000 cells in drd with 10.000 cells', function(done) {
       const diagram = require('../resources/1Table1000Rows10Cols.dmn');
@@ -130,8 +132,6 @@ describe('Large Tables', function() {
         const decisionView = views.filter(v => v.type === 'decisionTable')[0];
 
         modeler.open(decisionView, done);
-
-        expect(true).to.be.true;
 
         done();
       });
@@ -153,8 +153,6 @@ describe('Large Tables', function() {
 
         modeler.open(decisionView, done);
 
-        expect(true).to.be.true;
-
         done();
       });
 
@@ -175,9 +173,77 @@ describe('Large Tables', function() {
 
         modeler.open(decisionView, done);
 
-        expect(true).to.be.true;
-
         done();
+      });
+
+    });
+
+  });
+
+
+  describe('Interact with decision table', function() {
+
+    describe('10.000 cells', function() {
+
+      it('Should interact', function(done) {
+
+        const diagram = require('../resources/1Table1000Rows10Cols.dmn');
+
+        modeler.importXML(diagram, { open: false }, function(err) {
+
+          const views = modeler.getViews();
+          const decisionView = views.filter(v => v.type === 'decisionTable')[0];
+
+          modeler.open(decisionView, done);
+
+          // when
+          const cell = query('[data-element-id="InputEntry64"]', container);
+          triggerMouseEvent(cell, 'click');
+
+          const overlayButton = query('.simple-mode-button', container);
+          triggerMouseEvent(overlayButton, 'click');
+
+          const editOverlay = query('.context-menu', container);
+
+          // then
+          expect(editOverlay).to.exist;
+
+          done();
+        });
+
+      });
+
+    });
+
+
+    describe('30.000 cells', function() {
+
+      it('Should interact', function(done) {
+
+        const diagram = require('../resources/1Table3000Rows10Cols.dmn');
+
+        modeler.importXML(diagram, { open: false }, function(err) {
+
+          const views = modeler.getViews();
+          const decisionView = views.filter(v => v.type === 'decisionTable')[0];
+
+          modeler.open(decisionView, done);
+
+          // when
+          const cell = query('[data-element-id="InputEntry64"]', container);
+          triggerMouseEvent(cell, 'click');
+
+          const overlayButton = query('.simple-mode-button', container);
+          triggerMouseEvent(overlayButton, 'click');
+
+          const editOverlay = query('.context-menu', container);
+
+          // then
+          expect(editOverlay).to.exist;
+
+          done();
+        });
+
       });
 
     });
@@ -205,4 +271,10 @@ function insertCSS(name, css) {
   }
 
   head.appendChild(style);
+}
+
+function triggerMouseEvent(node, eventType) {
+  const clickEvent = document.createEvent ('MouseEvents');
+  clickEvent.initEvent(eventType, true, true);
+  node.dispatchEvent(clickEvent);
 }
