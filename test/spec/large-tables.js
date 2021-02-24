@@ -35,80 +35,80 @@ describe('Large Tables', function() {
 
 
   afterEach(function() {
-      if (modeler) {
-        modeler.destroy();
+    if (modeler) {
+      modeler.destroy();
 
-        modeler = null;
-      }
+      modeler = null;
+    }
 
-      document.body.removeChild(container);
-    });
+    document.body.removeChild(container);
+  });
 
 
   describe('DRD view', function() {
 
-    it('Should show 1 table with 10.000 cells', function(done){
-        const diagram = require('../resources/1Table1000Rows10Cols.dmn');
+    it('Should show 1 table with 10.000 cells', function(done) {
+      const diagram = require('../resources/1Table1000Rows10Cols.dmn');
 
-        modeler.importXML(diagram, { open: false }, function(err) {
+      modeler.importXML(diagram, { open: false }, function(err) {
 
-          if (err) {
-            return done(err);
-          }
+        if (err) {
+          return done(err);
+        }
 
-          const views = modeler.getViews();
-          const decisionView = views.filter(v => v.type === 'drd')[0];
+        const views = modeler.getViews();
+        const decisionView = views.filter(v => v.type === 'drd')[0];
 
-          modeler.open(decisionView, done);
+        modeler.open(decisionView, done);
 
-          expect(true).to.be.true;
+        expect(true).to.be.true;
 
-          done();
-        });
-
-    });
-
-
-    it('Should show 3 tables with 10.000 cells', function(done){
-        const diagram = require('../resources/3Tables1000Rows10Cols.dmn');
-
-        modeler.importXML(diagram, { open: false }, function(err) {
-
-          if (err) {
-            return done(err);
-          }
-
-          const views = modeler.getViews();
-          const decisionView = views.filter(v => v.type === 'drd')[0];
-
-          modeler.open(decisionView, done);
-
-          expect(true).to.be.true;
-
-          done();
-        });
+        done();
+      });
 
     });
 
 
-    it('Should show 1 table with 30.000 cells', function(done){
-        const diagram = require('../resources/1Table3000Rows10Cols.dmn');
+    it('Should show 3 tables with 10.000 cells', function(done) {
+      const diagram = require('../resources/3Tables1000Rows10Cols.dmn');
 
-        modeler.importXML(diagram, { open: false }, function(err) {
+      modeler.importXML(diagram, { open: false }, function(err) {
 
-          if (err) {
-            return done(err);
-          }
+        if (err) {
+          return done(err);
+        }
 
-          const views = modeler.getViews();
-          const decisionView = views.filter(v => v.type === 'drd')[0];
+        const views = modeler.getViews();
+        const decisionView = views.filter(v => v.type === 'drd')[0];
 
-          modeler.open(decisionView, done);
+        modeler.open(decisionView, done);
 
-          expect(true).to.be.true;
+        expect(true).to.be.true;
 
-          done();
-        });
+        done();
+      });
+
+    });
+
+
+    it('Should show 1 table with 30.000 cells', function(done) {
+      const diagram = require('../resources/1Table3000Rows10Cols.dmn');
+
+      modeler.importXML(diagram, { open: false }, function(err) {
+
+        if (err) {
+          return done(err);
+        }
+
+        const views = modeler.getViews();
+        const decisionView = views.filter(v => v.type === 'drd')[0];
+
+        modeler.open(decisionView, done);
+
+        expect(true).to.be.true;
+
+        done();
+      });
 
     });
 
@@ -117,68 +117,68 @@ describe('Large Tables', function() {
 
   describe('Decision table view', function() {
 
-    it('Should show 10.000 cells in drd with 10.000 cells', function(done){
-        const diagram = require('../resources/1Table1000Rows10Cols.dmn');
+    it('Should show 10.000 cells in drd with 10.000 cells', function(done) {
+      const diagram = require('../resources/1Table1000Rows10Cols.dmn');
 
-        modeler.importXML(diagram, { open: false }, function(err) {
+      modeler.importXML(diagram, { open: false }, function(err) {
 
-          if (err) {
-            return done(err);
-          }
+        if (err) {
+          return done(err);
+        }
 
-          const views = modeler.getViews();
-          const decisionView = views.filter(v => v.type === 'decisionTable')[0];
+        const views = modeler.getViews();
+        const decisionView = views.filter(v => v.type === 'decisionTable')[0];
 
-          modeler.open(decisionView, done);
+        modeler.open(decisionView, done);
 
-          expect(true).to.be.true;
+        expect(true).to.be.true;
 
-          done();
-        });
-
-    });
-
-
-    it('Should show 10.000 cells in drd with 30.000 cells', function(done){
-        const diagram = require('../resources/3Tables1000Rows10Cols.dmn');
-
-        modeler.importXML(diagram, { open: false }, function(err) {
-
-          if (err) {
-            return done(err);
-          }
-
-          const views = modeler.getViews();
-          const decisionView = views.filter(v => v.type === 'decisionTable')[0];
-
-          modeler.open(decisionView, done);
-
-          expect(true).to.be.true;
-
-          done();
-        });
+        done();
+      });
 
     });
 
 
-    it('Should show 30.000 cells in drd with 30.000 cells', function(done){
-        const diagram = require('../resources/1Table3000Rows10Cols.dmn');
+    it('Should show 10.000 cells in drd with 30.000 cells', function(done) {
+      const diagram = require('../resources/3Tables1000Rows10Cols.dmn');
 
-        modeler.importXML(diagram, { open: false }, function(err) {
+      modeler.importXML(diagram, { open: false }, function(err) {
 
-          if (err) {
-            return done(err);
-          }
+        if (err) {
+          return done(err);
+        }
 
-          const views = modeler.getViews();
-          const decisionView = views.filter(v => v.type === 'decisionTable')[0];
+        const views = modeler.getViews();
+        const decisionView = views.filter(v => v.type === 'decisionTable')[0];
 
-          modeler.open(decisionView, done);
+        modeler.open(decisionView, done);
 
-          expect(true).to.be.true;
+        expect(true).to.be.true;
 
-          done();
-        });
+        done();
+      });
+
+    });
+
+
+    it('Should show 30.000 cells in drd with 30.000 cells', function(done) {
+      const diagram = require('../resources/1Table3000Rows10Cols.dmn');
+
+      modeler.importXML(diagram, { open: false }, function(err) {
+
+        if (err) {
+          return done(err);
+        }
+
+        const views = modeler.getViews();
+        const decisionView = views.filter(v => v.type === 'decisionTable')[0];
+
+        modeler.open(decisionView, done);
+
+        expect(true).to.be.true;
+
+        done();
+      });
 
     });
 
@@ -194,7 +194,7 @@ function insertCSS(name, css) {
   }
 
   const head = document.head || document.getElementsByTagName('head')[0],
-      style = document.createElement('style');
+        style = document.createElement('style');
   style.setAttribute('data-css-file', name);
 
   style.type = 'text/css';

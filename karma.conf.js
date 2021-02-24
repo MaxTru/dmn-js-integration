@@ -36,7 +36,7 @@ module.exports = function(config) {
     reportSlowerThan: 0.00001,
 
     webpack: {
-      "mode": "development",
+      'mode': 'development',
       module: {
         rules: [
           {
