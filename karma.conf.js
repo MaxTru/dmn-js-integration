@@ -3,7 +3,7 @@ process.env.CHROME_BIN = require('puppeteer').executablePath();
 
 // configures browsers to run test against
 // any of [ 'ChromeHeadless', 'Chrome', 'Firefox', 'IE' ]
-const browsers = (process.env.TEST_BROWSERS || 'ChromeHeadless').split(/\s*,\s*/g);
+const browsers = (process.env.TEST_BROWSERS || 'Chrome').split(/\s*,\s*/g);
 
 module.exports = function(config) {
   config.set({
@@ -28,7 +28,7 @@ module.exports = function(config) {
 
     client: {
       mocha: {
-        timeout : 10000
+        timeout : 80000
       }
     },
 

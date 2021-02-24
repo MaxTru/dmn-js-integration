@@ -36,7 +36,7 @@ describe('Large Tables', function() {
 
   describe('DRD view', function() {
 
-    it('Should open large drd incl 1 table with 10.000 cells', function(done){
+    it('Should show 1 table with 10.000 cells', function(done){
         const diagram = require('../resources/1Table1000Rows10Cols.dmn').default;
 
         modeler.importXML(diagram, { open: false }, function(err) {
@@ -58,7 +58,7 @@ describe('Large Tables', function() {
     });
 
 
-    it('Should open large drd incl 3 tables with 10.000 cells', function(done){
+    it('Should show 3 tables with 10.000 cells', function(done){
         const diagram = require('../resources/3Tables1000Rows10Cols.dmn').default;
 
         modeler.importXML(diagram, { open: false }, function(err) {
@@ -80,7 +80,7 @@ describe('Large Tables', function() {
     });
 
 
-    it('Should open large drd incl 1 table with 30.000 cells', function(done){
+    it('Should show 1 table with 30.000 cells', function(done){
         const diagram = require('../resources/1Table3000Rows10Cols.dmn').default;
 
         modeler.importXML(diagram, { open: false }, function(err) {
@@ -106,7 +106,7 @@ describe('Large Tables', function() {
 
   describe('Decision table view', function() {
 
-    it('Should open large table incl 10.000 cells', function(done){
+    it('Should show 10.000 cells in drd with 10.000 cells', function(done){
         const diagram = require('../resources/1Table1000Rows10Cols.dmn').default;
 
         modeler.importXML(diagram, { open: false }, function(err) {
@@ -128,7 +128,7 @@ describe('Large Tables', function() {
     });
 
 
-    it('Should open large table incl 10.000 cells in drd with 30.000 cells', function(done){
+    it('Should show 10.000 cells in drd with 30.000 cells', function(done){
         const diagram = require('../resources/3Tables1000Rows10Cols.dmn').default;
 
         modeler.importXML(diagram, { open: false }, function(err) {
@@ -150,7 +150,7 @@ describe('Large Tables', function() {
     });
 
 
-    it('Should open large table incl 30.000 cells', function(done){
+    it('Should show 30.000 cells in drd with 30.000 cells', function(done){
         const diagram = require('../resources/1Table3000Rows10Cols.dmn').default;
 
         modeler.importXML(diagram, { open: false }, function(err) {
