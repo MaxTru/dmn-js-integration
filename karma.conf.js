@@ -20,6 +20,29 @@ module.exports = function(config) {
 
     singleRun: true,
 
-    browsers: browsers
+    browsers: browsers,
+
+    preprocessors: {
+      'test/spec/*.js': ['webpack']
+    },
+
+    webpack: {
+      "mode": "development",
+      module: {
+        rules: [
+          {
+            test: /\.css|\.dmn$/i,
+            use: 'raw-loader'
+          },
+        ],
+      }
+    },
+
+    plugins: [
+      'karma-webpack',
+      'karma-mocha',
+      'karma-sinon-chai',
+      'karma-chrome-launcher'
+    ]
   });
 };
