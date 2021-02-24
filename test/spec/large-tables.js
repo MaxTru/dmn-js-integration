@@ -1,12 +1,12 @@
 import Modeler from 'dmn-js/lib/Modeler';
 
-insertCSS('dmn-js-drd.css', require('dmn-js-drd/assets/css/dmn-js-drd.css').default);
+insertCSS('dmn-js-drd.css', require('dmn-js-drd/assets/css/dmn-js-drd.css'));
 
 insertCSS('dmn-js-decision-table.css',
-  require('dmn-js-decision-table/assets/css/dmn-js-decision-table.css').default
+  require('dmn-js-decision-table/assets/css/dmn-js-decision-table.css')
 );
 
-insertCSS('diagram-js.css', require('diagram-js/assets/diagram-js.css').default);
+insertCSS('diagram-js.css', require('diagram-js/assets/diagram-js.css'));
 
 insertCSS('dmn-js-testing.css',
   '.test-container { height: 500px; }'
@@ -34,10 +34,21 @@ describe('Large Tables', function() {
   });
 
 
+  afterEach(function() {
+      if (modeler) {
+        modeler.destroy();
+
+        modeler = null;
+      }
+
+      document.body.removeChild(container);
+    });
+
+
   describe('DRD view', function() {
 
     it('Should show 1 table with 10.000 cells', function(done){
-        const diagram = require('../resources/1Table1000Rows10Cols.dmn').default;
+        const diagram = require('../resources/1Table1000Rows10Cols.dmn');
 
         modeler.importXML(diagram, { open: false }, function(err) {
 
@@ -59,7 +70,7 @@ describe('Large Tables', function() {
 
 
     it('Should show 3 tables with 10.000 cells', function(done){
-        const diagram = require('../resources/3Tables1000Rows10Cols.dmn').default;
+        const diagram = require('../resources/3Tables1000Rows10Cols.dmn');
 
         modeler.importXML(diagram, { open: false }, function(err) {
 
@@ -81,7 +92,7 @@ describe('Large Tables', function() {
 
 
     it('Should show 1 table with 30.000 cells', function(done){
-        const diagram = require('../resources/1Table3000Rows10Cols.dmn').default;
+        const diagram = require('../resources/1Table3000Rows10Cols.dmn');
 
         modeler.importXML(diagram, { open: false }, function(err) {
 
@@ -107,7 +118,7 @@ describe('Large Tables', function() {
   describe('Decision table view', function() {
 
     it('Should show 10.000 cells in drd with 10.000 cells', function(done){
-        const diagram = require('../resources/1Table1000Rows10Cols.dmn').default;
+        const diagram = require('../resources/1Table1000Rows10Cols.dmn');
 
         modeler.importXML(diagram, { open: false }, function(err) {
 
@@ -129,7 +140,7 @@ describe('Large Tables', function() {
 
 
     it('Should show 10.000 cells in drd with 30.000 cells', function(done){
-        const diagram = require('../resources/3Tables1000Rows10Cols.dmn').default;
+        const diagram = require('../resources/3Tables1000Rows10Cols.dmn');
 
         modeler.importXML(diagram, { open: false }, function(err) {
 
@@ -151,7 +162,7 @@ describe('Large Tables', function() {
 
 
     it('Should show 30.000 cells in drd with 30.000 cells', function(done){
-        const diagram = require('../resources/1Table3000Rows10Cols.dmn').default;
+        const diagram = require('../resources/1Table3000Rows10Cols.dmn');
 
         modeler.importXML(diagram, { open: false }, function(err) {
 

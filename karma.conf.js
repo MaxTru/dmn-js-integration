@@ -40,11 +40,18 @@ module.exports = function(config) {
       module: {
         rules: [
           {
-            test: /\.css|\.dmn$/,
-            use: 'raw-loader'
+            test: /\.css|\.dmn$/i,
+            use: [
+              {
+                loader: 'raw-loader',
+                options: {
+                  esModule: false,
+                },
+              },
+            ],
           },
         ],
-      }
+      },
     },
 
     plugins: [
